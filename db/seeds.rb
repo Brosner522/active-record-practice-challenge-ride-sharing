@@ -28,7 +28,10 @@ end
 puts "🚗🚗🚗 Seeding rides 🚗🚗🚗..."
 # Create 20 random rides
 50.times do
-
+  driver_inst = Driver.ids.sample
+  passenger_inst = Passenger.ids.sample
+  price = rand(1.0..1000.0)
+  Ride.create(driver_id: driver_inst, passenger_id: passenger_inst, price: price, pick_up: Faker::Address.state, drop_off: Faker::Address.state)
   # TODO: create rides! Remember, a ride belongs to a driver
   # and a ride belongs to a passenger. Driver -< Ride >- Passenger
 
